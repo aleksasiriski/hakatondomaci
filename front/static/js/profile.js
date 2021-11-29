@@ -1,5 +1,3 @@
-
-
 loadPage()
 
 async function loadPage() {
@@ -32,11 +30,6 @@ async function loadPage() {
         else{
             $('#role').attr('placeholder','User');
         }
-        const themeUpvotes=document.querySelector("#themeUpvotes")
-        themeUpvotes.innerHTML=user.upvotes.themes.length
-
-        const downvotes=document.querySelector("#themeDownvotes")
-        downvotes.innerHTML=user.downvotes.themes.length 
 
     } catch (err) {
         console.log(err)

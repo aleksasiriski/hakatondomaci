@@ -31,10 +31,12 @@ router.get("/authenticated", async (req, res) => {
         })
     }
 })
+
 router.post("/login", check.isNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/login"
 }))
+
 router.post("/register", check.isNotAuthenticated, async (req, res, next) => {
     try {
         const username = req.body.username
@@ -55,6 +57,7 @@ router.post("/register", check.isNotAuthenticated, async (req, res, next) => {
     successRedirect: "/",
     failureRedirect: "/login"
 }))
+
 router.delete("/logout", check.isAuthenticated, async (req, res) => {
     try {
         req.logOut()
@@ -63,6 +66,7 @@ router.delete("/logout", check.isAuthenticated, async (req, res) => {
         res.redirect("/")
     }
 })
+
 router.get("/username/:userId", async (req, res) => {
     try {
         const userId = req.params.userId
@@ -85,6 +89,7 @@ router.get("/username/:userId", async (req, res) => {
         })
     }
 })
+
 router.get("/userId/:username", async (req, res) => {
     try {
         const username = req.params.username
@@ -108,20 +113,7 @@ router.get("/userId/:username", async (req, res) => {
         })
     }
 })
-router.get("/user/subs", check.isAuthenticated, async (req, res) => {
-    try {
-        const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
-        res.status(200).json({
-            success: true,
-            subs: specificUser.followedSubs
-        })
-    } catch (err) {
-        res.status(404).json({
-            success: false,
-            message: err.message
-        })
-    }
-})
+
 router.get("/user", check.isAuthenticated, async (req, res) => {
     try {
         const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
@@ -136,6 +128,7 @@ router.get("/user", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
 router.put("/user", check.isAuthenticated, async (req, res) => {
     try {
         const fname = req.body.fname
@@ -173,90 +166,9 @@ router.put("/user", check.isAuthenticated, async (req, res) => {
         })
     }
 })
-router.put("/user/subs/:id", check.isAuthenticated, async (req, res) => {
-    try {
-        const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
-        const newSubId = req.params.id
-        let found = false
-        let added = false
-        specificUser.followedSubs.forEach((subId) => {
-            if (!found && subId == newSubId) {
-                found = true
-            }
-        })
-        if (!found) {
-            specificUser.followedSubs.push(newSubId)
-            await specificUser.save()
-            added = true
-        }
-        res.status(200).json({
-            success: true,
-            added: added
-        })
-    } catch (err) {
-        res.status(404).json({
-            success: false,
-            message: err.message
-        })
-    }
-})
-router.put("/user/saved/themes/:id", check.isAuthenticated, async (req, res) => {
-    try {
-        const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
-        const newThemeId = req.params.id
-        let found = false
-        let added = false
-        specificUser.saved.themes.forEach((themeId) => {
-            if (!found && themeId == newThemeId) {
-                found = true
-            }
-        })
-        if (!found) {
-            specificUser.saved.themes.push(newThemeId)
-            await specificUser.save()
-            added = true
-        }
-        res.status(200).json({
-            success: true,
-            added: added
-        })
-    } catch (err) {
-        res.status(404).json({
-            success: false,
-            message: err.message
-        })
-    }
-})
-router.put("/user/saved/comments/:id", check.isAuthenticated, async (req, res) => {
-    try {
-        const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
-        const newSubId = req.params.id
-        let found = false
-        let added = false
-        specificUser.saved.comments.forEach((subId) => {
-            if (!found && subId == newSubId) {
-                found = true
-            }
-        })
-        if (!found) {
-            specificUser.saved.comments.push(newSubId)
-            await specificUser.save()
-            added = true
-        }
-        res.status(200).json({
-            success: true,
-            added: added
-        })
-    } catch (err) {
-        res.status(404).json({
-            success: false,
-            message: err.message
-        })
-    }
-})
 
 //images
-router.post("/user/profile", upload.single("avatar"), async (req, res, next) => {
+router.post("/user/avatar", upload.single("avatar"), async (req, res, next) => {
     try {
         const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
         specificUser.avatar = req.file.filename
@@ -266,7 +178,7 @@ router.post("/user/profile", upload.single("avatar"), async (req, res, next) => 
         res.redirect("/")
     }
 })
-router.delete("/user/profile", upload.none(), async (req, res, next) => {
+router.delete("/user/avatar", upload.none(), async (req, res, next) => {
     try {
         const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
         specificUser.avatar = ""

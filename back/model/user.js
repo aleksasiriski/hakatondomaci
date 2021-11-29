@@ -15,25 +15,6 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     chats: [String],
-    followedSubs: [String],
-    moderatedSubs: [String],
-    created: {
-        subs: [String],
-        themes: [String],
-        comments: [String]
-    },
-    upvotes: {
-        themes: [String],
-        comments: [String]
-    },
-    downvotes: {
-        themes: [String],
-        comments: [String]
-    },
-    saved: {
-        themes: [String],
-        comments: [String]
-    },
     admin: Boolean,
     createdAt: Date,
     updatedAt: Date
@@ -50,8 +31,8 @@ userSchema.pre("save", function (next) {
         this.fname = ""
     if (!this.lname)
         this.lname = ""
-    if (!this.pfp)
-        this.pfp = ""
+    if (!this.avatar)
+        this.avatar = ""
     next()
 })
 

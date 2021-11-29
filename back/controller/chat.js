@@ -21,6 +21,7 @@ router.get("/chats", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
 router.get("/chats/:id", check.isAuthenticated, async (req, res) => {
     try {
         const chatId = req.params.id
@@ -52,6 +53,7 @@ router.get("/chats/:id", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
 router.get("/chats/:id/updated", check.isAuthenticated, async (req, res) => {
     try {
         const chatId = req.params.id
@@ -83,6 +85,7 @@ router.get("/chats/:id/updated", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
 router.get("/chats/:id/small", check.isAuthenticated, async (req, res) => {
     try {
         const chatId = req.params.id
@@ -125,6 +128,7 @@ router.get("/chats/:id/small", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
 router.post("/chats", check.isAuthenticated, async (req, res) => {
     try {
         const name = req.body.name
@@ -160,6 +164,7 @@ router.post("/chats", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
 router.post("/chats/:id/recipients", check.isAuthenticated, async (req, res) => {
     try {
         const chatId = req.params.id
@@ -199,6 +204,7 @@ router.post("/chats/:id/recipients", check.isAuthenticated, async (req, res) => 
         })
     }
 })
+
 router.post("/chats/:id/messages", check.isAuthenticated, async (req, res) => {
     try {
         const chatId = req.params.id
@@ -240,6 +246,7 @@ router.post("/chats/:id/messages", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
 router.put("/chats/:id/messages/:messageId", check.isAuthenticated, async (req, res) => {
     try {
         const chatId = req.params.id
