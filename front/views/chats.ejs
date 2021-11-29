@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chats</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/fontawesome/css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/axios.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="headNav">
+            <nav class="navbar navbar-light">
+                <a href="./" class="title">Tminaddit</a>
+                <div class="form-inline">
+                    <div class="input-group">
+                        <!--input type="text" class="form-control search" aria-label="Recipient's username"
+                            aria-describedby="button-addon2">
+                        <div class="input-group-append searchButton">
+                            <button id="search_bar" class="btn btn-outline-primary" type="button" id="button-addon2">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div-->
+                        <div id="navbar"></div>
+                        <a href="/subs"><button class="btn btn-primary nav-button">Subs</button></a>
+
+                        <form action="/api/logout?_method=DELETE" method="POST">
+                            <button id="logInOut" class="btn btn-primary log-in-out" type="submit">Logout</button>
+                        </form>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-1">
+            </div>
+            <div id="chat-list" class="col-md-10 border-right space">
+                <div class="settings-tray">
+                    <div class="text-center">
+                        <h6>Chats</h6>
+                    </div>
+                    <span class="settings-tray--right"></span>
+                </div>
+                <!-- <div class="search-box">
+                            <div class="input-wrapper">
+                                <input placeholder="Search here" type="text">
+                            </div>
+                        </div> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 message">
+                <div class="card gedf-card ">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab"
+                                    aria-controls="posts" aria-selected="true">Start a chat</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                                <div class="form-group">
+                                    <input type="text" id="chatName" placeholder="Very interesting chat name"
+                                        class="form-control title-input"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                                <div class="form-group">
+                                    <input type="text" id="participants" placeholder="Coolguy, Awesomeman, Superpal"
+                                        class="form-control title-input"></input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-toolbar justify-content-between">
+                            <div class="btn-group">
+                                <button id="start-chat-button" type="submit" class="btn btn-primary">Start</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/chats.js"></script>
+</body>
+<html>
