@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 
+
 const chatSchema = new mongoose.Schema({
     name: String,
     participants: [String],
@@ -20,5 +21,6 @@ chatSchema.pre("save", function (next) {
         this.createdAt = currentDate
     next()
 })
+
 
 module.exports = mongoose.model("chat", chatSchema)
