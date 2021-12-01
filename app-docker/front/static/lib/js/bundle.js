@@ -53,7 +53,7 @@
 	var offset;
 	var update = true;
 	var initial = ["cherry", "chocolate", "egg", "fish","flour","lettuce","milk","rice","salt","steak","strawberry","sugar-cube","tomato","water"];
-	var all = ["bento","birthday-cake","bread","cake","cheese","cheesecake","cherry-cheesecake","cherry","chocolate","cookie","cupcake","dough","egg","fish","flour","gingerbread-house","hamburger","lettuce","mayo","milk","pizza","rice-cake","rice","salad","salt","sauce","steak","strawberry-cheescake","strawberry","sugar-cube","sugar-cubes","sushi","tomato","waffle","water"];
+	var all = ["strawberry-cheesecake","bento","birthday-cake","bread","cake","cheese","cheesecake","cherry-cheesecake","cherry","chocolate","cookie","cupcake","dough","egg","fish","flour","gingerbread-house","hamburger","lettuce","mayo","milk","pizza","rice-cake","rice","salad","salt","sauce","steak","strawberry","sugar-cube","sugar-cubes","sushi","tomato","waffle","water"];
 
 	var elements = [];
 	var discovered = [];
@@ -471,7 +471,7 @@
 /***/ function(module, exports) {
 
 	
-	var recipes = [["dough", ["flour", "water"]],["mayo", ["egg", "egg"]],["bread", ["dough", "salt"]],["cheescake", ["dough", "sugar-cube"]],["sugar-cubes", ["sugar-cube", "sugar-cube"]],["cheese", ["milk", "milk"]],["cake", ["cheescake", "chocolate"]],["cherry-cheescake", ["cherry", "cheescake"]],["strawberry-cheescake", ["cheescake", "strawberry"]],["hamburger", ["steak", "bread"]],["waffle", ["bread", "egg"]],["sauce", ["tomato", "tomato"]],["salad", ["lettuce", "lettuce"]],["salad", ["tomato", "lettuce"]],["pizza", ["sauce", "cheese"]],["sushi", ["fish", "rice"]],["cookie", ["dough", "chocolate"]],["cupcake", ["cookie", "chocolate"]],["gingerbread-house", ["cookie", "cookie"]],["rice-cake", ["rice", "sugar-cube"]], ["rice-cake", ["rice", "cheescake"]],["bento", ["sushi", "sushi"]],["birthday-cake", ["cake", "cupcake"]]];
+	var recipes = [["dough", ["flour", "water"]],["mayo", ["egg", "egg"]],["bread", ["dough", "salt"]],["sugar-cubes", ["sugar-cube", "sugar-cube"]],["cheese", ["milk", "milk"]],["cake", ["cheescake", "chocolate"]],["cherry-cheescake", ["cherry", "cheescake"]],["strawberry-cheescake", ["cheescake", "strawberry"]],["hamburger", ["steak", "bread"]],["waffle", ["bread", "egg"]],["sauce", ["tomato", "tomato"]],["salad", ["lettuce", "lettuce"]],["salad", ["tomato", "lettuce"]],["sushi", ["fish", "rice"]],["cookie", ["dough", "chocolate"]],["cupcake", ["cookie", "chocolate"]],["gingerbread-house", ["cookie", "cookie"]],["rice-cake", ["rice", "sugar-cube"]], ["rice-cake", ["rice", "cheescake"]],["bento", ["sushi", "sushi"]],["birthday-cake", ["cake", "cupcake"]],["pizza",["sauce","cheese"]],["cheescake", ["dough", "sugar-cube"]]];
 
 
 	var allRecipes = recipes.reduce((comb, [first, second]) => {
