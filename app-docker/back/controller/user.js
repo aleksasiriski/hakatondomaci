@@ -1,4 +1,3 @@
-//includes
 const express = require("express")
 const router = express()
 const passport = require("passport")
@@ -8,13 +7,13 @@ const check = require("./authentication")
 const multer = require("multer")
 const upload = multer({ dest: "front/static/uploads/" })
 
-//express and passport
+
 passport.use(user.createStrategy())
 passport.serializeUser(user.serializeUser())
 passport.deserializeUser(user.deserializeUser())
 router.use(methodOverride("_method"))
 
-//users
+
 router.get("/authenticated", async (req, res) => {
     try {
         let success = false
@@ -167,7 +166,7 @@ router.put("/user", check.isAuthenticated, async (req, res) => {
     }
 })
 
-//images
+
 router.post("/user/avatar", upload.single("avatar"), async (req, res, next) => {
     try {
         const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
@@ -189,5 +188,5 @@ router.delete("/user/avatar", upload.none(), async (req, res, next) => {
     }
 })
 
-//export
+
 module.exports = router
