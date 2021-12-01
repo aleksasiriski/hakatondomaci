@@ -1,0 +1,29 @@
+version: "3.3"
+networks:
+  internal:
+    external: false
+services:
+  app:
+    image: "aleksasiriski/hakatondomaci"
+    container_name: "app"
+    depends_on:
+      - "db"
+    environment:
+      - "PORT=3000"
+      - "SESSION_SECRET=MegaSuperKulSifra"
+      - "URL_SECRET=mongodb://db/hakatondomaci"
+    networks:
+      internal:
+        aliases:
+          - "app"
+    ports:
+      - "8080:3000"
+  db:
+    image: "mongo"
+    container_name: "db"
+    volumes:
+      - "./mongo-volume:/data/db"
+    networks:
+      internal:
+        aliases:
+          - "db"
