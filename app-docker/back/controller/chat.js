@@ -1,11 +1,10 @@
-//includes
 const express = require("express")
 const router = express()
 const user = require("../model/user")
 const chat = require("../model/chat")
 const check = require("./authentication")
 
-//chats
+
 router.get("/chats", check.isAuthenticated, async (req, res) => {
     try {
         const username = req.session.passport.user
@@ -291,5 +290,5 @@ router.put("/chats/:id/messages/:messageId", check.isAuthenticated, async (req, 
     }
 })
 
-//export
+
 module.exports = router
