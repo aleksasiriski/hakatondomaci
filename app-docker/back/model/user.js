@@ -8,32 +8,37 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    avatar: String,
-    fname: String,
-    lname: String,
+    avatar: {
+        type: String,
+        default: ""
+    },
+    fname: {
+        type: String,
+        default: ""
+    },
+    lname: {
+        type: String,
+        default: ""
+    },
     email: {
         type: String,
+        required: true,
         unique: true
     },
     chats: [String],
-    admin: Boolean,
+    admin: {
+        type: Boolean,
+        default: false
+    },
     createdAt: Date,
     updatedAt: Date
 }, { collection: "users" })
 
 userSchema.pre("save", function (next) {
-    if (!this.admin)
-        this.admin = false
     const currentDate = new Date()
     this.updatedAt = currentDate
     if (!this.createdAt)
         this.createdAt = currentDate
-    if (!this.fname)
-        this.fname = ""
-    if (!this.lname)
-        this.lname = ""
-    if (!this.avatar)
-        this.avatar = ""
     next()
 })
 

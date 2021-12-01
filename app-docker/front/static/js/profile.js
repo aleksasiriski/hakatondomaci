@@ -35,6 +35,18 @@ async function loadPage() {
         console.log(err)
     }
 }
+
+const resetPasswordButton = document.querySelector("#reset-button")
+resetPasswordButton.addEventListener("click", resetPassword)
+
+async function resetPassword() {
+    try {
+        await axios.put("/api/user/resetpassword")
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 const saveButton = document.querySelector("#save-button")
 saveButton.addEventListener("click", getInput)
 

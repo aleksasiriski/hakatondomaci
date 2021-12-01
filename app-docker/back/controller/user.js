@@ -6,6 +6,9 @@ const user = require("../model/user")
 const check = require("./authentication")
 const multer = require("multer")
 const upload = multer({ dest: "front/static/uploads/" })
+const Crypto = require('crypto')
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 
 passport.use(user.createStrategy())
@@ -165,6 +168,47 @@ router.put("/user", check.isAuthenticated, async (req, res) => {
         })
     }
 })
+
+router.put("/user/resetpassword", check.isAuthenticated, async (req, res) => {
+    try {
+        const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
+        const newPassword = randomString.toString()
+
+        const msg = {
+            to: specificUser.email,
+            from: 'no-reply@tmina.org',
+            subject: 'Password reset request',
+            text: `Hello ${specificUser.fname},\n\nHere is your new password: ${newPassword}`,
+            html: `<strong>Hello ${specificUser.fname},\n\nHere is your new password: ${newPassword}<strong>`,
+        }
+
+        sgMail
+            .send(msg)
+            .then((response) => {
+                console.log(response[0].statusCode)
+                console.log(response[0].headers)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+
+        await specificUser.setPassword(newPassword)
+        await specificUser.save()
+
+        res.status(200).json({
+            success: true
+        })
+    } catch (err) {
+        res.status(404).json({
+            success: false,
+            message: err.message
+        })
+    }
+})
+
+function randomString(size = 16) {  
+    return Crypto.randomBytes(size).toString('base64').slice(0, size)
+}
 
 
 router.post("/user/avatar", upload.single("avatar"), async (req, res, next) => {
