@@ -274,7 +274,7 @@
 			}
 		});
 
-		var foundCount = new createjs.Text(`${discovered.length}/100`, "72px Arial", "#ff7700");
+		var foundCount = new createjs.Text(`${discovered.length}/35`, "72px Arial", "#ccc");
 		foundCount.x = 25;
 		foundCount.y = 25;
 		foundCount.name = "foundCount";
