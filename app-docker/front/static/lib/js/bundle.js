@@ -1,48 +1,35 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+			 (function(modules) { 
+			var installedModules = {};
 
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+			function __webpack_require__(moduleId) {
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+				if(installedModules[moduleId])
+		 			return installedModules[moduleId].exports;
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+				var module = installedModules[moduleId] = {
+					exports: {},
+					id: moduleId,
+					loaded: false
+				};
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ function(module, exports, __webpack_require__) {
+		 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+				module.loaded = true;
+
+		 		return module.exports;
+		 	}
+
+			__webpack_require__.m = modules;
+
+			__webpack_require__.c = installedModules;
+
+			__webpack_require__.p = "";
+
+			return __webpack_require__(0);
+		 })
+		 ([
+	 function(module, exports, __webpack_require__) {
 
 	const combine = __webpack_require__(1);
 
@@ -61,10 +48,7 @@
 	var yCoord = 520;
 	var mute = false;
 
-	createjs.Sound.registerSound("./assets/sounds/great_job.wav", "greatJob");
-	createjs.Sound.registerSound('./assets/sounds/laugh.wav', "laugh");
-	createjs.Sound.registerSound('./assets/sounds/nuclear_war.mp3', "explode");
-	createjs.Sound.registerSound('./assets/sounds/win.mp3', "win");
+
 
 
 	var winModal = new createjs.Shape();
@@ -225,37 +209,7 @@
 			update = true;
 		});
 
-		$(".cheat").on("click", (e) => {
-			elOffset = 0;
-			yCoord = 520;
-			stage.children[1].removeAllChildren();
-			stage.children[2].removeAllChildren();
-			winModal.visible = false;
-			winModalLabel.visible = false;
-
-			if (stage.children[11] && stage.children[11].children) {
-				stage.children[11].removeAllChildren();
-			}
-			discovered = [];
-			update = true;
-			if(e.currentTarget.textContent === "Unlock All") {
-				e.currentTarget.textContent = "Start Over";
-				all.forEach(el => {
-					let image = new Image();
-					image.src = `./assets/img/${el}.png`;
-					let elObj = {name: el};
-					image.onload = handleImageLoad.bind(elObj);
-				});
-			} else {
-				e.currentTarget.textContent = "Unlock All";
-				initial.forEach(el => {
-					let image = new Image();
-					image.src = `./assets/img/${el}.png`;
-					let elObj = {name: el};
-					image.onload = handleImageLoad.bind(elObj);
-				});
-			}
-		});
+		
 
 
 		update = true;
@@ -452,9 +406,9 @@
 	}
 
 
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
+	 },
+
+	 function(module, exports, __webpack_require__) {
 
 	var allRecipes = __webpack_require__(2);
 
@@ -466,9 +420,9 @@
 	module.exports = combine;
 
 
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
+	 },
+
+	 function(module, exports) {
 
 	
 	var recipes = [["dough", ["flour", "water"]],["mayo", ["egg", "egg"]],["bread", ["dough", "salt"]],["sugar-cubes", ["sugar-cube", "sugar-cube"]],["cheese", ["milk", "milk"]],["cake", ["cheescake", "chocolate"]],["cherry-cheescake", ["cherry", "cheescake"]],["strawberry-cheescake", ["cheescake", "strawberry"]],["hamburger", ["steak", "bread"]],["waffle", ["bread", "egg"]],["sauce", ["tomato", "tomato"]],["salad", ["lettuce", "lettuce"]],["salad", ["tomato", "lettuce"]],["sushi", ["fish", "rice"]],["cookie", ["dough", "chocolate"]],["cupcake", ["cookie", "chocolate"]],["gingerbread-house", ["cookie", "cookie"]],["rice-cake", ["rice", "sugar-cube"]], ["rice-cake", ["rice", "cheescake"]],["bento", ["sushi", "sushi"]],["birthday-cake", ["cake", "cupcake"]],["pizza",["sauce","cheese"]],["cheescake", ["dough", "sugar-cube"]]];
@@ -483,5 +437,5 @@
 	module.exports = allRecipes;
 
 
-/***/ }
-/******/ ]);
+ }
+ ]);
