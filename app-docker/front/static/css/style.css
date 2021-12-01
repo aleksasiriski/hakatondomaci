@@ -1048,65 +1048,24 @@ body{
   position: absolute;
   bottom: 5px;
   right: 7px;
-  background-color:rgb(51,48,56); 
+  
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ceeb35;
 }
 .vertical-scroll div.bar {
     left:0px;
     top:0px;
-    width: 20px;
-    background-color: #1F1B24;
+    width: 17px;
+    background-color:#ceeb35; 
     height: 20px;
-    border-radius: 7px;
+    border-radius: 4px;
 }
 #bodyCanvas {
     left:0px;
     top:0px;
 }
 
-.about {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-  border-radius: 7px;
-  font-size: 20px;
-  color: #aaa;
-  background-color: rgb(51,48,56);
-  width: 150px;
-  border-style: solid;
-  border-color: rgb(51,48,56);
-}
-
-.cheat {
-  position: absolute;
-  top: 65px;
-  right: 10px;
-  padding: 10px;
-  border-radius: 7px;
-  font-size: 20px;
-  background-color: rgb(51,48,56);
-  border-color: none;
-  color: #aaa;
-  width: 150px;
-  margin-top: 2px;
-  border-style: solid;
-  border-color: rgb(51,48,56);
-}
-
-.about:hover {
-  background-color:#1F1B24;
-  border-style: solid;
-  border-color:#1F1B24;
-
-  cursor: pointer;
-}
-
-.cheat:hover {
-  border-style: solid;
-  border-color: #1F1B24;
-  background-color:#1F1B24;
-  cursor: pointer;
-}
 
 .mute {
   height: 50px;
