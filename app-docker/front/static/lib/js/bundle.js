@@ -250,7 +250,7 @@
 		bitmap.scaleX = bitmap.scaleY = bitmap.scale = .5;
 		bitmap.cursor = "pointer";
 
-		var text = new createjs.Text(this.name, "18px Arial", "#ff7700");
+		var text = new createjs.Text(this.name, "18px Arial", "#ccc");
 		text.y = this.y + 55 || yCoord + 55;
 		text.x = bitmap.x + 5;
 		container.addChild(text);
