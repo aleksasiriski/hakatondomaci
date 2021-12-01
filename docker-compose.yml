@@ -4,10 +4,12 @@ networks:
     external: false
 services:
   app:
-    image: "aleksasiriski/hakatondomaci"
+    image: "tmina/hakatondomaci"
     container_name: "app"
     depends_on:
       - "db"
+    volumes:
+      - "./app-docker:/usr/src/app"
     environment:
       - "PORT=3000"
       - "SESSION_SECRET=MegaSuperKulSifra"
