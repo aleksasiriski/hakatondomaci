@@ -6,18 +6,9 @@ var mouseTarget;
 var dragStarted;
 var offset;
 var update = true;
-var initial = ["fire", "water", "earth", "air"];
-var all = ["fire", "water", "earth", "air", "pressure", "energy", "dust", "lava",
-"rain", "mud", "steam", "sea", "wind","stone","atmosphere","earthquake","gunpowder",
-"salt","volcano","granite","obsidian","brick","plant","flood","ocean","geyser","sky","sand","wall",
-"fog","mountain","storm","metal","explosion","swamp","tsunami","algae","isle","wave","cotton",
-"grass","tobacco","seaweed","garden","moss","coal","ash","cloud","eruption","hurricane",
-"rust","sound","atomic bomb","grenade","fireworks","glass","sun","dew","bullet",
-"archipelago","steel","electricity","blade","mountain range","river","beach","horizon",
-"flower","ivy","diamond","sandstorm","clay","cactus","desert","quicksand","dune","moon",
-"boiler","sandstone","life","house","pond","bird","scissors","blender","scythe","sword",
-"golem","pyramid","oasis","ring","human","light bulb","wire","pottery","water lily",
-"sunflower","glasses","mirror","telescope"];
+var initial = ["sugar-cube", "salt", "water", "egg","milk","fish","tomato","lettuce","flour","chocolate","steak","cherry","strawberry"];
+var all = ["sugar-cube", "salt", "water", "egg","milk","fish","tomato","lettuce","flour","chocolate","steak","cherry","strawberry", "birthday-cake","bread","cake","cheese","cheesecake","cherry-cheesecake","cookie","cupcake","dough","gingerbread-house","hamburger","mayo","salad","rice-cake","pizza","sauce","strawberry-cheescake","sugar-cubes","bento","waffle","sushi"];
+
 
 var elements = [];
 var discovered = [];
