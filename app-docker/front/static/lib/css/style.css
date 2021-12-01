@@ -31,15 +31,18 @@ body{
   position: absolute;
   bottom: 5px;
   right: 7px;
+  border-style: solid;
+  border-color:#ceeb35 ;
+  border-width: 2px;
   background-color:rgb(51,48,56); 
 }
 .vertical-scroll div.bar {
     left:0px;
     top:0px;
-    width: 20px;
-    background-color: #1F1B24;
+    width: 17px;
+    background-color: #ceeb35 ;
     height: 20px;
-    border-radius: 7px;
+    border-radius: 4px;
 }
 #bodyCanvas {
     left:0px;
