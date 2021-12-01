@@ -1015,3 +1015,123 @@ h1{
   margin-left: 20px;
   
 }
+
+/* Game */
+
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+body{
+  background-color: #121212;
+}
+.wrapper {
+    
+    top:10px;
+    left:10px;
+    width: 1000px;
+    height: 750px;
+    overflow: hidden;
+    background-color:#272727;
+    position: relative;
+    margin-top: 72px;
+    border-radius: 7px;
+}
+.vertical-scroll {
+  border-radius: 7px;
+  width: 20px;
+  height: 236px;
+  position: absolute;
+  bottom: 5px;
+  right: 7px;
+  background-color:rgb(51,48,56); 
+}
+.vertical-scroll div.bar {
+    left:0px;
+    top:0px;
+    width: 20px;
+    background-color: #1F1B24;
+    height: 20px;
+    border-radius: 7px;
+}
+#bodyCanvas {
+    left:0px;
+    top:0px;
+}
+
+.about {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 20px;
+  color: #aaa;
+  background-color: rgb(51,48,56);
+  width: 150px;
+  border-style: solid;
+  border-color: rgb(51,48,56);
+}
+
+.cheat {
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 20px;
+  background-color: rgb(51,48,56);
+  border-color: none;
+  color: #aaa;
+  width: 150px;
+  margin-top: 2px;
+  border-style: solid;
+  border-color: rgb(51,48,56);
+}
+
+.about:hover {
+  background-color:#1F1B24;
+  border-style: solid;
+  border-color:#1F1B24;
+
+  cursor: pointer;
+}
+
+.cheat:hover {
+  border-style: solid;
+  border-color: #1F1B24;
+  background-color:#1F1B24;
+  cursor: pointer;
+}
+
+.mute {
+  height: 50px;
+  position: absolute;
+  top: 125px;
+  right: 10px;
+}
+
+.mute:hover {
+  cursor: pointer;
+
+}
+
+.header {
+  font-size: 54px;
+  position: absolute;
+  margin: 0px;
+}
+.bg-light{
+  background-color: #232323 !important;
+}
+a{
+  color:#aaa !important;
+}
+.collapse:not(.show) {
+    display:block;
+}
+    
