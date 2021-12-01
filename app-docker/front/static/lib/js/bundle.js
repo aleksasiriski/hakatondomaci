@@ -52,18 +52,8 @@
 	var dragStarted;
 	var offset;
 	var update = true;
-	var initial = ["fire", "water", "earth", "air"];
-	var all = ["fire", "water", "earth", "air", "pressure", "energy", "dust", "lava",
-	"rain", "mud", "steam", "sea", "wind","stone","atmosphere","earthquake","gunpowder",
-	"salt","volcano","granite","obsidian","brick","plant","flood","ocean","geyser","sky","sand","wall",
-	"fog","mountain","storm","metal","explosion","swamp","tsunami","algae","isle","wave","cotton",
-	"grass","tobacco","seaweed","garden","moss","coal","ash","cloud","eruption","hurricane",
-	"rust","sound","atomic bomb","grenade","fireworks","glass","sun","dew","bullet",
-	"archipelago","steel","electricity","blade","mountain range","river","beach","horizon",
-	"flower","ivy","diamond","sandstorm","clay","cactus","desert","quicksand","dune","moon",
-	"boiler","sandstone","life","house","pond","bird","scissors","blender","scythe","sword",
-	"golem","pyramid","oasis","ring","human","light bulb","wire","pottery","water lily",
-	"sunflower","glasses","mirror","telescope"];
+	var initial = ["cherry", "chocolate", "egg", "fish","flour","lettuce","milk","rice","salt","steak","strawberry","sugar-cube","tomato","water"];
+	var all = ["bento","birthday-cake","bread","cake","cheese","cheesecake","cherry-cheesecake","cherry","chocolate","cookie","cupcake","dough","egg","fish","flour","gingerbread-house","hamburger","lettuce","mayo","milk","pizza","rice-cake","rice","salad","salt","sauce","steak","strawberry-cheescake","strawberry","sugar-cube","sugar-cubes","sushi","tomato","waffle","water"];
 
 	var elements = [];
 	var discovered = [];
