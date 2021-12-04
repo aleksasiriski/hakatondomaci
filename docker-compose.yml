@@ -14,7 +14,7 @@ services:
       - "PORT=3000"
       - "SESSION_SECRET=MegaSuperKulSifra"
       - "URL_SECRET=mongodb://db/hakatondomaci"
-      - "SENDGRID_APIKEY=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"
+      - "SENDGRID_APIKEY=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"
     networks:
       internal:
         aliases:
