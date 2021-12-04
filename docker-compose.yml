@@ -12,9 +12,9 @@ services:
       - "./app-docker:/usr/src/app"
     environment:
       - "PORT=3000"
-      - "SESSION_SECRET=MegaSuperKulSifra"
+      - "SESSION_SECRET=$SESSION_SECRET"
       - "URL_SECRET=mongodb://db/hakatondomaci"
-      - "SENDGRID_APIKEY=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"
+      - "SENDGRID_APIKEY=$SENDGRID_APIKEY"
     networks:
       internal:
         aliases:
