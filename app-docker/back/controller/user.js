@@ -185,8 +185,8 @@ router.put("/user/resetpassword", check.isAuthenticated, async (req, res) => {
             to: specificUser.email,
             from: 'no-reply@tmina.org',
             subject: 'Password reset request',
-            text: `Hello ${specificUser.fname},\n\nHere is your new password: ${newPassword}`,
-            html: `<strong>Hello ${specificUser.fname},\n\nHere is your new password: ${newPassword}<strong>`,
+            text: `Hello ${specificUser.fname},\n\nHere is your new password:\n\t${newPassword}`,
+            html: `<strong>Hello ${specificUser.fname},\n\nHere is your new password:\n\t${newPassword}<strong>`,
         }
 
         sgMail
