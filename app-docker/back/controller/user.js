@@ -6,9 +6,16 @@ const user = require("../model/user")
 const check = require("./authentication")
 const multer = require("multer")
 const upload = multer({ dest: "front/static/uploads/" })
-const Crypto = require('crypto')
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const crypto = require('crypto');
+const PASSWORD_LENGTH = 14;
+const LOWERCASE_ALPHABET = 'abcdefghijklmnopqrstuvwxyz'; // 26 chars
+const UPPERCASE_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; // 26 chars
+const NUMBERS = '0123456789'; // 10 chars
+const SYMBOLS = ',./<>?;\'":[]\\|}{=-_+`~!@#$%^&*()'; // 32 chars
+const ALPHANUMERIC_CHARS = LOWERCASE_ALPHABET + UPPERCASE_ALPHABET + NUMBERS; // 62 chars
+const ALL_CHARS = ALPHANUMERIC_CHARS + SYMBOLS; // 94 chars
 
 
 passport.use(user.createStrategy())
@@ -172,7 +179,7 @@ router.put("/user", check.isAuthenticated, async (req, res) => {
 router.put("/user/resetpassword", check.isAuthenticated, async (req, res) => {
     try {
         const specificUser = await user.findOne({"username": `${req.session.passport.user}`})
-        const newPassword = randomString.toString()
+        const newPassword = generateRandomPassword(PASSWORD_LENGTH, ALL_CHARS)
 
         const msg = {
             to: specificUser.email,
@@ -206,8 +213,14 @@ router.put("/user/resetpassword", check.isAuthenticated, async (req, res) => {
     }
 })
 
-function randomString(size = 16) {  
-    return Crypto.randomBytes(size).toString('base64').slice(0, size)
+function generateRandomPassword(length, alphabet) {
+    let rb = crypto.randomBytes(length)
+    let rp = ""
+    for (let i = 0; i < length; i++) {
+        rb[i] = rb[i] % alphabet.length
+        rp += alphabet[rb[i]]
+    }
+    return rp
 }
 
 
